@@ -67,8 +67,18 @@ class _HomepageState extends State<Homepage> {
                           decoration:
                               const BoxDecoration(color: Colors.amberAccent),
                         ),
-                        child: Image.network(item.image),
-                        footer: Text(item.price.toString()),
+                        child: Image.network(
+                          item.image,
+                          fit: BoxFit.fill,
+                        ),
+                        footer: Container(
+                          child: Text(
+                            item.price.toString(),
+                            style: const TextStyle(color: Colors.black),
+                          ),
+                          padding: const EdgeInsets.all(13),
+                          decoration: const BoxDecoration(color: Colors.red),
+                        ),
                       ));
                 },
                 itemCount: CatalogModel.items.length,
