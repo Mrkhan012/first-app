@@ -59,25 +59,25 @@ class _HomepageState extends State<Homepage> {
                           borderRadius: BorderRadius.circular(12)),
                       child: GridTile(
                         header: Container(
+                          padding: const EdgeInsets.all(13),
+                          decoration:
+                              const BoxDecoration(color: Colors.amberAccent),
                           child: Text(
                             item.name,
                             style: const TextStyle(color: Colors.black),
                           ),
+                        ),
+                        footer: Container(
                           padding: const EdgeInsets.all(13),
-                          decoration:
-                              const BoxDecoration(color: Colors.amberAccent),
+                          decoration: const BoxDecoration(color: Colors.black),
+                          child: Text(
+                            item.price.toString(),
+                            style: const TextStyle(color: Colors.white),
+                          ),
                         ),
                         child: Image.network(
                           item.image,
                           fit: BoxFit.fill,
-                        ),
-                        footer: Container(
-                          child: Text(
-                            item.price.toString(),
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                          padding: const EdgeInsets.all(13),
-                          decoration: const BoxDecoration(color: Colors.red),
                         ),
                       ));
                 },
