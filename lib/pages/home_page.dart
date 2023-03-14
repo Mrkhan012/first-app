@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_ak/models/catalog.dart';
-import 'package:flutter_application_ak/widgets/items_widget.dart';
 import 'dart:convert';
 
 import '../widgets/drawer.dart';
