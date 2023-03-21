@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_ak/models/catalog.dart';
+import 'package:flutter_application_ak/widgets/items_widget.dart';
 import 'dart:convert';
 
 import '../widgets/drawer.dart';
@@ -44,43 +45,11 @@ class _HomepageState extends State<Homepage> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-            ? GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 17,
-                  crossAxisSpacing: 17,
-                ),
-                itemBuilder: (context, index) {
-                  final item = CatalogModel.items[index];
-                  return Card(
-                      clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      child: GridTile(
-                        header: Container(
-                          padding: const EdgeInsets.all(13),
-                          decoration:
-                              const BoxDecoration(color: Colors.amberAccent),
-                          child: Text(
-                            item.name,
-                            style: const TextStyle(color: Colors.black),
-                          ),
-                        ),
-                        footer: Container(
-                          padding: const EdgeInsets.all(13),
-                          decoration: const BoxDecoration(color: Colors.black),
-                          child: Text(
-                            item.price.toString(),
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        child: Image.network(
-                          item.image,
-                          fit: BoxFit.fill,
-                        ),
-                      ));
-                },
+            ? ListView.builder(
                 itemCount: CatalogModel.items.length,
+                itemBuilder: (context, index) => ItemWidget(
+                  item: CatalogModel.items[index],
+                ),
               )
             : const Center(
                 child: CircularProgressIndicator(),

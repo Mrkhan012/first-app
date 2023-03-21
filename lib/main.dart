@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_ak/pages/login_page.dart';
 import 'package:flutter_application_ak/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/home_page.dart';
+import 'package:dio/dio.dart' as dio;
 
 void main() {
   runApp(const MyApp());
@@ -31,4 +34,14 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+}
+
+Future downloadFile() async {
+  var dio = Dio();
+
+  Directory directory = await getApplicationDocumentsDirectory();
+  var response = await dio.post(path)
+}
+
+getApplicationDocumentsDirectory() {
 }
